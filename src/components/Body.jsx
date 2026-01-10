@@ -114,6 +114,7 @@ React.useEffect(() => {
         setCurrentWord(()=>getRandomWord())
         setGuess([])
         setTime(60)
+        setTimeOut(false)
     }
 
     const gameStatusClass=clsx("game-status",{
@@ -134,7 +135,7 @@ React.useEffect(() => {
 
             }
         {isGameOver ? (<section aria-live="polite" role="status" className={gameStatusClass}>
-                    {isGameWon? (
+                    {(isGameWon && !timeOut)? (
                         <>
                             <h2>You win!</h2>
                             <p>Well done! 🎉</p>
@@ -157,7 +158,7 @@ React.useEffect(() => {
                     {lang}
             </section>
             <section className="timer-section">
-               <h3>Time Remaining : {time}</h3> 
+               <h3 style={{color:time>=20?"#b37d09":"#f90000"}}>Time Remaining : {time}</h3> 
             </section>
             <section className="word">
                 {word}

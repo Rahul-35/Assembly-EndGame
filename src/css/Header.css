@@ -36,6 +36,8 @@ header > p {
   box-shadow: none;
    padding: 12px 20px;
   font-size: 26px;
+  justify-content: left;
+  display: flexbox;
 }
 
 body.light {

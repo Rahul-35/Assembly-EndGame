@@ -57,8 +57,6 @@ section.container{
 section.timer-section {
   max-width: 100%;
   text-align: center;
-  color: #FCBA29;
-  background-color: #BA2A2A;
   margin-bottom: 36px;
   display: flex;
     flex-wrap: wrap;
@@ -66,6 +64,7 @@ section.timer-section {
     justify-content: center;
     max-width: 350px;
     border-radius: 5px;
+    background-color: rgb(20, 215, 196);
 }
 
 
@@ -84,6 +83,8 @@ section.word > span {
     align-items: center;
     font-size: 1.125rem;
     border-bottom: 1px solid #F9F4DA;
+    color:#F9F4DA;
+    border-radius: 2.8px;
 }
 
 section.keyboard {
