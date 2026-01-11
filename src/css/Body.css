@@ -1,3 +1,99 @@
+.start-screen {
+  min-height: 100vh;
+  width: 100vw;
+  position: fixed;          /* 🔑 removes it from normal flow */
+  inset: 0;   
+  background-image: url("/images/avg1.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 1; 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.start-button{
+  margin-top: 24px;
+  padding: 14px 36px;
+
+  font-family: "Segoe UI", "Arial", sans-serif;
+  font-size: 1.05rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+
+  color: #f5f5f5;
+  background: linear-gradient(
+    135deg,
+    #1b1f3b,
+    #2e3265,
+    #1b1f3b
+  );
+
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 6px;
+
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+
+  box-shadow:
+    0 0 0 rgba(0, 0, 0, 0),
+    inset 0 0 10px rgba(255, 255, 255, 0.05);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.3s ease,
+    background 0.3s ease;
+}
+
+.start-button:hover{
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.6),
+    0 0 20px rgba(92, 108, 255, 0.6);
+}
+
+.start-screen h1 {
+  font-size: 5.7rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  text-shadow:
+    0 0 10px rgba(120, 140, 255, 0.6),
+    0 0 30px rgba(60, 80, 200, 0.4);
+}
+
+.start-screen p {
+ color: #e6ebff;          /* brighter but not harsh white */
+  font-size: 1.1rem;
+  letter-spacing: 0.6px;
+  line-height: 1.6;
+
+  max-width: 520px;
+  text-align: center;
+   text-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.75);
+     font-weight: 500;
+  text-transform: none;
+}
+
+.start-screen::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.65),
+    rgba(0, 0, 0, 0.85)
+  );
+
+  z-index: -1;
+}
+
+
 section.game-status {
     display: flex;
     flex-direction: column;
@@ -16,6 +112,14 @@ body.light {
   background-color: #efc4c4;
   
 }
+
+/* body{
+   background-image: url("/images/avg.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+} */
 
 body.dark {
   background-color: #0f0f0f;

@@ -6,6 +6,7 @@ import clsx from 'clsx';
 
 function App() {
   const [dark,setDark]=React.useState(true);
+  const [gameStarted, setGameStarted] = React.useState(false);
 
   React.useEffect(() => {
     document.body.className = clsx({
@@ -18,8 +19,11 @@ function App() {
     
   return (
     <>
-    <Header isDark={dark} setIsDark={setDark} />
-    <Body/>
+   {gameStarted && (
+        <Header isDark={dark} setIsDark={setDark} />
+      )}
+    <Body  gameStarted={gameStarted}
+        setGameStarted={setGameStarted}/>
     </>
   )
 }

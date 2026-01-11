@@ -6,7 +6,7 @@ import {getFarewellText} from "../utilies/utils.js";
 import { getRandomWord } from "../utilies/utils.js";
 import ReactConfetti from "react-confetti";
 
-export default function Body(){
+export default function Body({gameStarted, setGameStarted}){
 
     //state values
     const [currentWord,setCurrentWord]=React.useState(()=>getRandomWord());
@@ -14,6 +14,7 @@ export default function Body(){
     const [time,setTime]=React.useState(60);
     const [timeOut, setTimeOut] = React.useState(false);
     const [farewellMessage,setFarewellMessage]=React.useState(null);
+    //const [gameStarted, setGameStarted] = React.useState(false);
 
 
     //derived values
@@ -81,7 +82,7 @@ React.useEffect(() => {
     // },[time]);
 
 React.useEffect(() => {
-    if(isGameOver) return;
+    if (!gameStarted || isGameOver) return;
   const id = setInterval(() => {
     setTime(prev => {
       if (prev <= 1) {
@@ -94,7 +95,7 @@ React.useEffect(() => {
   }, 1000);
 
   return () => clearInterval(id);
-}, [isGameOver]);
+}, [isGameOver, gameStarted]);
 
      const lang=languages.map((items, index)=>{
         const isLanguageLost=index < wrongGuessLength;
@@ -123,6 +124,18 @@ React.useEffect(() => {
         farewell: !isGameOver && wrongGuessLength>0
     })
 
+    if (!gameStarted) {
+  return (
+    <main className="start-screen">
+      <h1>Assembly: Endgame</h1>
+      <p>Time is breaking.</p>
+<p>Decode the final word before everything ends.</p>
+      <button className="start-button" onClick={() => setGameStarted(true)}>
+        Start Game
+      </button>
+    </main>
+  );
+}
     //console.log("time:", time, "timeOut:", timeOut);
     return(
         <main>
